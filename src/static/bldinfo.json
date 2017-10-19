@@ -1,0 +1,7 @@
+{
+  "productName": "IBM Watson Explorer",
+  "componentName": "Sample search application",
+  "commit": "TRAVIS_COMMIT",
+  "build": "TRAVIS_BUILD_NUMBER",
+  "buildDate": "BUILD_DATE"
+}

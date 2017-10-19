@@ -1,0 +1,49 @@
+/*
+© Copyright IBM Corporation 2017.
+LICENSE: Apache License, Version 2.0 (https://opensource.org/licenses/Apache-2.0)
+*/
+
+.searchbox-component {
+  display: flex;
+  flex-direction: column;
+  .searchbox-search-part {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .searchbox-debug-outputs {
+    max-height: 200px;
+    min-height: 20px;
+    border: solid black 1px;
+    overflow-y: scroll;
+  }
+  .collection-dropdown {
+    width: 200px;
+    margin-right: 20px;
+  }
+  .search-textbox {
+    width: 100%;
+  }
+  button.bx--search-button {
+    display: none;
+  }
+  svg.bx--search-close {
+    right: 1rem;
+  }
+  .nlq-modified-query {
+    margin-top: 4px;
+    margin-bottom: 4px;
+  }
+  .search-textbox-top {
+    display: flex;
+    .search-button {
+      margin-left: 0.75rem;
+    }
+  }
+  .checkboxes {
+    margin-left: 20px;
+    min-width: 240px;
+    display: flex;
+    flex-direction: column;
+  }
+}
