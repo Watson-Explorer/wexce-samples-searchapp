@@ -1,0 +1,58 @@
+plugins {
+  id "com.moowork.node" version "1.1.1"
+}
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'eclipse'
+
+repositories {
+  mavenLocal()
+  mavenCentral()
+}
+
+dependencies {
+  compile group: 'com.ibm.es.ama', name: 'ama-rest-proxy', version: 'latest.integration'
+}
+
+artifactory {
+	publish{
+		defaults {
+			publications("mavenJava")
+		}
+	}
+}
+
+publishing {
+	publications {
+		mavenJava(MavenPublication) {
+			from components.web
+		}
+	}
+}
+
+clean {
+  delete 'WebContent/assets'
+  delete 'WebContent/static'
+  delete 'WebContent/index.html'
+  delete 'dist/*'
+}
+
+task createDist(type: NpmTask) {
+	args = ['run', 'dist']
+}
+
+task copyDist(type: Copy) {
+  dependsOn('createDist')
+
+  from 'dist'
+  into 'WebContent'
+}
+
+task copyWebContent {
+  dependsOn('copyDist')
+}
+
+war {
+  dependsOn('copyWebContent')
+  from 'WebContent'
+}
