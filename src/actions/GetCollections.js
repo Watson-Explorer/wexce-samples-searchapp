@@ -10,7 +10,7 @@ import {
   GET_COLLECTIONS
 } from './const';
 
-const baseUrl = '/samples/search/main/wex/api/v1';
+const baseUrl = '/samples/search/main/api/v1';
 export const STATUS = {
   start: 'start',
   success: 'success',

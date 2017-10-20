@@ -10,8 +10,7 @@ import {
 } from './const';
 import RestCallLogEntry from '../utils/RestCallLogEntry';
 
-const baseUrl = '/samples/search/main/rapi/solr';
-const dclusteringUrl = '/samples/search/main/solr/dclustering/dclustering';
+const baseUrl = '/samples/search/main/api/v1/explore';
 
 export const STATUS = {
   start: 'start',
@@ -61,7 +60,7 @@ export default function createSubmitQueryAction(searchContext) {
             snippet: doc.body[0]
           }));
 
-          axios.post(dclusteringUrl, dParams, config)
+          axios.post(`${baseUrl}/dclustering`, dParams, config)
             .then(dResp => dispatch(submitQuery(STATUS.success, {
               queryText: paramQueryText,
               resultJson: response,

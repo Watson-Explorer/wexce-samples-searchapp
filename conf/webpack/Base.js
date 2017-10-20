@@ -81,21 +81,11 @@ class WebpackBaseConfig {
       devtool: 'eval',
       devServer: {
         proxy: {
-          '/samples/search/main/wex': {
-            target: 'http://docker:9080',
+          '/samples/search/main/api': {
+            target: 'https://localhost:443',
             pathRewrite: { '^/samples/search/main': '' },
-            secure: false
-          },
-          '/samples/search/main/rapi': {
-            target: 'http://docker:9080',
-            pathRewrite: { '^/samples/search/main': '' },
-            //target: 'http://localhost:9999',
-            secure: false
-          },
-          '/samples/search/main/solr': {
-            target: 'http://docker:8984',
-            pathRewrite: { '^/samples/search/main': '' },
-            secure: false
+            secure: false,
+            auth: 'admin:admin'
           }
         },
         contentBase: './src/',
