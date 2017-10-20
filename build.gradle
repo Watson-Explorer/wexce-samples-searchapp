@@ -10,10 +10,6 @@ repositories {
   mavenCentral()
 }
 
-dependencies {
-  compile group: 'com.ibm.es.ama', name: 'ama-rest-proxy', version: 'latest.integration'
-}
-
 artifactory {
 	publish{
 		defaults {
